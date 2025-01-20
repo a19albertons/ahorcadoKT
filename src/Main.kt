@@ -3,6 +3,7 @@ import kotlin.random.Random
 fun main(){
     val rm =ReproductorMidi("pugnodollari.mid")
     println("Cargando juego...")
+    Thread.sleep(1000)
 
     val palabras= listOf("John Wick","Baba Yaga","Helen Wick","Aurelio","Winston Scott","Charon","Viggo Tarasov","Iosef Tarasov","Marcus","Sofia Al-Azwar","Cassian","Perkins")
     val erroresMaximos=7
@@ -24,13 +25,15 @@ fun main(){
     println("Debes averiguar un personaje del universo John Wick deberían corresponder a uno de las 3 primeras peliculas")
     while (erroresActuales<erroresMaximos){
         println("Tu nombre actual esta: $palabraModificada")
-        println("Llevas $erroresActuales de $erroresMaximos. Introduce a continuacion una letra (en caso de accidente hay tolerancia por si introduces varios o repites caracter")
+        println("Llevas $erroresActuales de $erroresMaximos. Introduce a continuacion una letra (en caso de accidente hay tolerancia por si introduces varios o repites caracter)")
         val entrada= readln().lowercase().first() // somos buena gente te pasamos el caracter introducido a minuscula
         if (letrasIntroducidas.contains(entrada)){
             println("Ese caracter $entrada ya ha sido introducido. Le recuerdo cuales ya estan introducidos $letrasIntroducidas")
+            Thread.sleep(20)
             continue
         }
         letrasIntroducidas.add(entrada)
+        Thread.sleep(100)
         if (palabra.contains(entrada)){
             for (i in 0..palabra.length-1){
                 if (palabra[i]==entrada){
@@ -41,6 +44,7 @@ fun main(){
         else{
             erroresActuales++
         }
+        Thread.sleep(10)
         if (palabra==palabraModificada.toString()){
             break
         }
