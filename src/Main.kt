@@ -48,6 +48,7 @@ fun main(){
         }
         else{
             erroresActuales++
+            DibujoAhorcado.dibujar(erroresActuales)
         }
         Thread.sleep(10)
         if (palabra==palabraModificada.toString()){
