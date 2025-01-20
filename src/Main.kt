@@ -12,15 +12,20 @@ fun main(){
     val numPalabra = Random.nextInt(0, palabras.size-1)
     val palabra=palabras[numPalabra].lowercase() // somos buena gente no hay que diferencias mayuscula de minuscula
     val palabraModificada=StringBuilder("*".repeat(palabra.length))
+    val caracteres_gratis= listOf(' ', '-')
 //    Invita la casa
-    if (palabra.contains(" ")){
-        for (i in 0..palabra.length-1){
-            if (palabra[i]==' '){
-                palabraModificada[i]=' '
+    for (i in caracteres_gratis){
+        if (palabra.contains(i)){
+            for (j in 0..palabra.length-1){
+                if (palabra[j]==i){
+                    palabraModificada[j]=i
+                }
             }
         }
+        letrasIntroducidas.add(i)
     }
-    letrasIntroducidas.add(' ')
+
+
 
     println("Debes averiguar un personaje del universo John Wick deberían corresponder a uno de las 3 primeras peliculas")
     while (erroresActuales<erroresMaximos){
